@@ -2,5 +2,6 @@
 .row-actions.icon-edit,.row-actions.icon-delete{padding:5px 7px;border-radius:6px;font-size:16px}.row-actions.icon-edit:hover{background:#eaf1ff;color:#2864dc}.row-actions.icon-delete:hover{background:#fff0f1;color:#db5360}
 .confirm-box{padding:24px;text-align:center}.confirm-icon{width:46px;height:46px;margin:0 auto 12px;display:grid;place-items:center;border-radius:50%;background:#fff0f1;font-size:21px}.confirm-box h2{font-size:19px}.confirm-box p{margin:10px 0 20px;color:#6d778b;line-height:1.5}.confirm-box .form-actions{padding:0;border:0;justify-content:center}.danger-button{border:0;border-radius:8px;padding:10px 16px;background:#db5360;color:#fff;font-weight:600;cursor:pointer}.danger-button:hover{background:#c6404d}
 .reset-button{color:#b23d49}.reset-button:hover{background:#fff0f1}
+.install-button{display:none}.install-button.show{display:inline-block;background:#eaf1ff;color:#2864dc}
 .header-actions{margin-left:auto;display:flex;gap:8px;align-items:center}
 @media(max-width:850px){.header-actions{margin-left:auto}.header-actions .quick-add{display:none}}
