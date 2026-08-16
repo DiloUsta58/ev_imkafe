@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Stok & Kasa</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <link rel="stylesheet" href="assets/logo.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand"><img class="brand-logo" src="logo/logo.jpg" alt="Uygulama logosu"><span>Stok & Kasa<small>İşletme Takip</small></span></div>
+    <nav>
+      <button class="nav-link active" data-view="dashboard"><span>⌂</span> Genel Bakış</button>
+      <button class="nav-link" data-view="products"><span>▦</span> Stoklar</button>
+      <button class="nav-link" data-view="transactions"><span>⇄</span> Alış & Satış</button>
+      <button class="nav-link" data-view="cash"><span>₺</span> Kasa Hareketleri</button>
+    </nav>
+    <div class="sidebar-footer">Veriler bu bilgisayarda güvenle saklanır.<br><br><p>EV'İM KAFE<BR>
+RABİA&SELEN (ANA/KIZ)<BR>
+KAHVALTI<BR>
+ÇAY<BR>
+KAHVE ÇEŞİTLERİ<BR>
+SOĞUK İÇEÇEKLER @ev_imkafe<p>© D. Bölükbaşı 2026</p></div>
+  </aside>
+  <main>
+    <header><button id="menu-toggle" aria-label="Menü">☰</button><div><h1 id="page-title">Genel Bakış</h1><p id="today"></p></div><div class="header-actions"><button class="secondary" id="backup-button">Farklı Kaydet</button><button class="secondary" id="restore-button">Yükle</button><button class="secondary reset-button" id="reset-button">Geneli Sıfırla</button><button class="primary quick-add" data-action="sale">+ Yeni Satış</button></div></header>
+
+    <section id="dashboard" class="view active">
+      <div class="cards">
+        <article class="card accent-blue"><span>Kasadaki Bakiye</span><strong id="cash-balance">₺0,00</strong><small>Toplam tahsilat - ödeme</small></article>
+        <article class="card accent-green"><span>Bugünkü Satış</span><strong id="today-sales">₺0,00</strong><small id="today-sale-count">0 işlem</small></article>
+        <article class="card accent-orange"><span>Stok Değeri</span><strong id="stock-value">₺0,00</strong><small>Maliyet fiyatına göre</small></article>
+        <article class="card accent-red"><span>Azalan Stoklar</span><strong id="low-stock-count">0</strong><small>Kontrol gerektiren ürün</small></article>
+      </div>
+      <div class="grid-two">
+        <article class="panel"><div class="panel-heading"><h2>Son İşlemler</h2><button class="text-button" data-go="transactions">Tümünü Gör</button></div><div id="recent-transactions" class="list"></div></article>
+        <article class="panel"><div class="panel-heading"><h2>Azalan Stoklar</h2><button class="text-button" data-go="products">Stoklara Git</button></div><div id="low-stock-list" class="list"></div></article>
+      </div>
+    </section>
+
+    <section id="products" class="view">
+      <div class="toolbar"><input id="product-search" type="search" placeholder="Ürün adı veya kodu ara..."><button class="primary" data-action="product">+ Yeni Ürün</button></div>
+      <div class="panel table-wrap"><table><thead><tr><th>Ürün</th><th>Kod</th><th class="right">Stok</th><th class="right">Alış</th><th class="right">Satış</th><th class="right">Stok Değeri</th><th></th></tr></thead><tbody id="products-table"></tbody></table></div>
+    </section>
+
+    <section id="transactions" class="view">
+      <div class="toolbar"><div class="segmented"><button class="selected" data-filter="all">Tümü</button><button data-filter="sale">Satışlar</button><button data-filter="purchase">Alışlar</button></div><div class="actions"><button class="secondary" data-action="purchase">+ Alış Gir</button><button class="primary" data-action="sale">+ Satış Gir</button></div></div>
+      <div class="panel table-wrap"><table><thead><tr><th>Tarih</th><th>Tür</th><th>Ürün / Açıklama</th><th class="right">Miktar</th><th class="right">Tutar</th><th>Ödeme</th><th></th></tr></thead><tbody id="transactions-table"></tbody></table></div>
+    </section>
+
+    <section id="cash" class="view">
+      <div class="cards compact"><article class="card accent-blue"><span>Kasa Bakiyesi</span><strong id="cash-balance-2">₺0,00</strong></article><article class="card accent-green"><span>Toplam Giriş</span><strong id="cash-in">₺0,00</strong></article><article class="card accent-red"><span>Toplam Çıkış</span><strong id="cash-out">₺0,00</strong></article></div>
+      <div class="toolbar"><span class="muted">Satış ve alışlar otomatik olarak kasaya işlenir.</span><button class="primary" data-action="cash">+ Kasa Hareketi</button></div>
+      <div class="panel table-wrap"><table><thead><tr><th>Tarih</th><th>Açıklama</th><th>Tür</th><th class="right">Tutar</th><th></th></tr></thead><tbody id="cash-table"></tbody></table></div>
+    </section>
+  </main>
+  <dialog id="modal"><form method="dialog"><div class="modal-head"><h2 id="modal-title"></h2><button class="icon-button" value="cancel">×</button></div><div id="form-fields" class="form-grid"></div><div class="form-actions"><button class="secondary" value="cancel">Vazgeç</button><button class="primary" id="save-button" value="default">Kaydet</button></div></form></dialog>
+  <dialog id="confirm-modal"><div class="confirm-box"><div class="confirm-icon">🗑</div><h2 id="confirm-title">Kaydı Sil</h2><p id="confirm-message"></p><div class="form-actions"><button class="secondary" id="confirm-cancel">Vazgeç</button><button class="danger-button" id="confirm-delete">Sil</button></div></div></dialog>
+  <div id="toast"></div>
+  <input id="restore-file" type="file" accept=".json,application/json" hidden>
+  <script src="assets/app.js"></script>
+</body>
+</html>
