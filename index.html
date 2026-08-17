@@ -47,7 +47,7 @@ SOĞUK İÇEÇEKLER @ev_imkafe<p>© D. Bölükbaşı 2026</p></div>
 
     <section id="products" class="view">
       <div class="toolbar"><input id="product-search" type="search" placeholder="Ürün adı veya kodu ara..."><button class="primary" data-action="product">+ Yeni Ürün</button></div>
-      <div class="panel table-wrap"><table><thead><tr><th>Ürün</th><th>Kod</th><th class="right">Stok</th><th class="right">Alış</th><th class="right">Satış</th><th class="right">Stok Değeri</th><th></th></tr></thead><tbody id="products-table"></tbody></table></div>
+      <div class="panel table-wrap"><table><thead><tr><th>Ürün</th><th>Kod</th><th class="right">Mevcut Stok</th><th class="right">Alış</th><th class="right">Satış</th><th class="right">Stok Değeri</th><th class="right">Stok Satış Değeri</th><th></th></tr></thead><tbody id="products-table"></tbody></table></div>
     </section>
 
     <section id="customers" class="view">
@@ -66,7 +66,7 @@ SOĞUK İÇEÇEKLER @ev_imkafe<p>© D. Bölükbaşı 2026</p></div>
       <div class="panel table-wrap"><table><thead><tr><th>Tarih</th><th>Açıklama</th><th>Tür</th><th class="right">Tutar</th><th></th></tr></thead><tbody id="cash-table"></tbody></table></div>
     </section>
   </main>
-  <dialog id="modal"><form method="dialog"><div class="modal-head"><h2 id="modal-title"></h2><button class="icon-button" value="cancel">×</button></div><div id="form-fields" class="form-grid"></div><div class="form-actions"><button class="secondary" value="cancel">Vazgeç</button><button class="primary" id="save-button" value="default">Kaydet</button></div></form></dialog>
+  <dialog id="modal"><form method="dialog"><div class="modal-head"><h2 id="modal-title"></h2><button class="icon-button" value="cancel" formnovalidate>×</button></div><div id="form-fields" class="form-grid"></div><div class="form-actions"><button class="secondary" value="cancel" formnovalidate>Vazgeç</button><button class="primary" id="save-button" value="default">Kaydet</button></div></form></dialog>
   <dialog id="confirm-modal"><div class="confirm-box"><div class="confirm-icon">🗑</div><h2 id="confirm-title">Kaydı Sil</h2><p id="confirm-message"></p><div class="form-actions"><button class="secondary" id="confirm-cancel">Vazgeç</button><button class="danger-button" id="confirm-delete">Sil</button></div></div></dialog>
   <div id="toast"></div>
   <input id="restore-file" type="file" accept=".json,application/json" hidden>
