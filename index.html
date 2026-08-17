@@ -18,13 +18,19 @@
     <nav>
       <button class="nav-link active" data-view="dashboard"><span>⌂</span> Genel Bakış</button>
       <button class="nav-link" data-view="products"><span>▦</span> Stoklar</button>
+      <button class="nav-link" data-view="customers"><span>☷</span> Cariler</button>
       <button class="nav-link" data-view="transactions"><span>⇄</span> Alış & Satış</button>
       <button class="nav-link" data-view="cash"><span>₺</span> Kasa Hareketleri</button>
     </nav>
-    <div class="sidebar-footer">Veriler bu bilgisayarda güvenle saklanır.<br><br><p>© D. Bölükbaşı 2026</p></div>
+    <div class="sidebar-footer">Veriler bu bilgisayarda güvenle saklanır.<br><br><p>EV'İM KAFE<BR>
+RABİA&SELEN (ANA/KIZ)<BR>
+KAHVALTI<BR>
+ÇAY<BR>
+KAHVE ÇEŞİTLERİ<BR>
+SOĞUK İÇEÇEKLER @ev_imkafe<p>© D. Bölükbaşı 2026</p></div>
   </aside>
   <main>
-    <header><button id="menu-toggle" aria-label="Menü">☰</button><div><h1 id="page-title">Genel Bakış</h1><p id="today"></p></div><div class="header-actions"><button class="secondary install-button" id="install-button">⌄ Uygulamayı Yükle</button><button class="secondary" id="backup-button">Farklı Kaydet</button><button class="secondary" id="restore-button">Yükle</button><button class="secondary reset-button" id="reset-button">Geneli Sıfırla</button><button class="primary quick-add" data-action="sale">+ Yeni Satış</button></div></header>
+    <header><button id="menu-toggle" aria-label="Menü">☰</button><div><h1 id="page-title">Genel Bakış</h1><p id="today"></p></div><div class="header-actions"><button class="secondary install-button" id="install-button">⌄ Uygulamayı Yükle</button><button class="secondary" id="backup-button">Farklı Kaydet</button><button class="secondary" id="restore-button">Yükle</button><button class="secondary reset-button" id="reset-button">Genel Sıfırlama</button><button class="primary quick-add" data-action="sale">+ Yeni Satış</button></div></header>
 
     <section id="dashboard" class="view active">
       <div class="cards">
@@ -42,6 +48,11 @@
     <section id="products" class="view">
       <div class="toolbar"><input id="product-search" type="search" placeholder="Ürün adı veya kodu ara..."><button class="primary" data-action="product">+ Yeni Ürün</button></div>
       <div class="panel table-wrap"><table><thead><tr><th>Ürün</th><th>Kod</th><th class="right">Stok</th><th class="right">Alış</th><th class="right">Satış</th><th class="right">Stok Değeri</th><th></th></tr></thead><tbody id="products-table"></tbody></table></div>
+    </section>
+
+    <section id="customers" class="view">
+      <div class="toolbar"><input id="customer-search" type="search" placeholder="Cari adı, kodu veya telefon ara..."><button class="primary" data-action="customer">+ Cari Ekle</button></div>
+      <div class="panel table-wrap"><table><thead><tr><th>Cari Kodu</th><th>Cari Adı / Firma Ünvanı</th><th>Cari Türü</th><th>Telefon</th><th>Adres</th><th></th></tr></thead><tbody id="customers-table"></tbody></table></div>
     </section>
 
     <section id="transactions" class="view">

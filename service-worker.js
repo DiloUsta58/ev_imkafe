@@ -1,4 +1,4 @@
-const CACHE_NAME = 'stok-kasa-v1';
+const CACHE_NAME = 'stok-kasa-v2';
 const APP_FILES = [
   './',
   './index.html',
